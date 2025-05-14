@@ -9,6 +9,9 @@ public class LinkedList {
     public void insertAtBeginning(String content) {
         Node newNode = new Node(content);
         newNode.next = head;
+        if (head != null) {
+            head.prev = newNode;
+        }
         head = newNode;
         System.out.println(content + " inserted at the beginning.");
     }
@@ -26,6 +29,7 @@ public class LinkedList {
             last = last.next;
         }
         last.next = newNode;
+        newNode.prev = last;
         System.out.println(content + " inserted at the end.");
     }
 
@@ -37,24 +41,30 @@ public class LinkedList {
         }
         Node newNode = new Node(content);
         newNode.next = prevNode.next;
+        newNode.prev = prevNode;
+        if (prevNode.next != null) {
+            prevNode.next.prev = newNode;
+        }
         prevNode.next = newNode;
         System.out.println(content + " inserted after " + prevNode.content + ".");
     }
 
     // Method to delete a node with a given key
     public void deleteNode(String key) {
-        Node temp = head, prev = null;
+        Node temp = head;
 
         // If head node itself holds the key to be deleted
         if (temp != null && temp.content.equals(key)) {
-            head = temp.next; // Changed head
+            head = temp.next;
+            if (head != null) {
+                head.prev = null;
+            }
             System.out.println(key + " deleted.");
             return;
         }
 
-        // Search for the key to be deleted, keep track of the previous node
+        // Search for the key to be deleted
         while (temp != null && !temp.content.equals(key)) {
-            prev = temp;
             temp = temp.next;
         }
 
@@ -65,13 +75,19 @@ public class LinkedList {
         }
 
         // Unlink the node from linked list
-        prev.next = temp.next;
+        if (temp.prev != null) {
+            temp.prev.next = temp.next;
+        }
+        if (temp.next != null) {
+            temp.next.prev = temp.prev;
+        }
         System.out.println(key + " deleted.");
     }
 
-    // Method to traverse and print the linked list
-    public void printList() {
+    // Method to traverse and print the linked list (forward)
+    public void printListForward() {
         Node temp = head;
+        System.out.print("Forward: ");
         while (temp != null) {
             System.out.print(temp.content + " -> ");
             temp = temp.next;
@@ -79,7 +95,27 @@ public class LinkedList {
         System.out.println("null");
     }
 
-    // Method to get a node by its data (for insertAfter example)
+    // Method to traverse and print the linked list (backward)
+    public void printListBackward() {
+        Node temp = head;
+        if (temp == null) {
+            System.out.println("Backward: null");
+            return;
+        }
+        // Go to the last node
+        while (temp.next != null) {
+            temp = temp.next;
+        }
+        System.out.print("Backward: ");
+        while (temp != null) {
+            System.out.print(temp.content + " -> ");
+            temp = temp.prev;
+        }
+        System.out.println("null");
+    }
+
+
+    // Method to get a node by its content (for insertAfter example)
     public Node getNode(String content) {
         Node temp = head;
         while (temp != null) {
