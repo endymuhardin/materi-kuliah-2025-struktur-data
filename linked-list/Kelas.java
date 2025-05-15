@@ -5,6 +5,30 @@ public class Kelas {
         pertama = x;
     }
 
+    public Siswa ambilDi(Integer index){
+        return null;
+    }
+
+    public Integer urutan(String nama){
+        return null;
+    }
+
+    public Integer jumlahSiswa(){
+        return null;
+    }
+
+    public void tambahDiDepan(Siswa s){
+        
+    }
+
+    public void tambahSetelah(String nama, Siswa s){
+
+    }
+
+    public void hapus(String nama){
+
+    }
+
     public void tambahDiBelakang(Siswa s){
         Siswa terakhir = cariTerakhir();
         terakhir.berikutnya = s;
