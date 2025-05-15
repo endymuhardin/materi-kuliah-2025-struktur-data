@@ -5,10 +5,10 @@ public class DemoKelas {
         Kelas k = new Kelas(endy);
 
         Siswa fikri = new Siswa("Fikri");
-        k.tambah(fikri);
-        k.tambah(new Siswa("Naufal"));
-        k.tambah(new Siswa("Azmi"));
-        k.tambah(new Siswa("Rahma"));
+        k.tambahDiBelakang(fikri);
+        k.tambahDiBelakang(new Siswa("Naufal"));
+        k.tambahDiBelakang(new Siswa("Azmi"));
+        k.tambahDiBelakang(new Siswa("Rahma"));
         k.tampilkanSemua();
     }
 }

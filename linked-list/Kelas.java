@@ -5,7 +5,7 @@ public class Kelas {
         pertama = x;
     }
 
-    public void tambah(Siswa s){
+    public void tambahDiBelakang(Siswa s){
         Siswa terakhir = cariTerakhir();
         terakhir.berikutnya = s;
     }
