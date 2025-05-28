@@ -27,6 +27,26 @@ public class Kelas {
     }
 
     public Integer urutan(String nama){
+        Integer urutan = 0;
+        Siswa sekarang = pertama;
+
+        // supaya robust
+        if(sekarang == null){
+            return null;
+        }
+
+        if(nama.equals(sekarang.nama)) {
+            return urutan;
+        }
+
+        while(sekarang.berikutnya != null){
+            urutan++;
+            sekarang = sekarang.berikutnya;
+
+            if(nama.equals(sekarang.nama)) {
+                return urutan;
+            }
+        }
         return null;
     }
 

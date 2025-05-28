@@ -29,5 +29,12 @@ public class DemoKelas {
 
         Kelas k1 = new Kelas(null);
         System.out.println("Jumlah siswa : "+k1.jumlahSiswa());
+
+        System.out.println("=========================");
+        System.out.println("Cari nama Nabila di kelas kosong : " +k1.urutan("Nabila"));
+        System.out.println("Cari nama Nabila di kelas berisi : " +k.urutan("Nabila"));
+        System.out.println("Cari nama Fikri di kelas berisi : " +k.urutan("Fikri"));
+        System.out.println("Cari nama Aisyah di kelas berisi : " +k.urutan("Aisyah"));
+        System.out.println("Cari nama Rahma di kelas berisi : " +k.urutan("Rahma"));
     }
 }
