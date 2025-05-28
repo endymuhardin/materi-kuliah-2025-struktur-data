@@ -10,5 +10,10 @@ public class DemoKelas {
         k.tambahDiBelakang(new Siswa("Azmi"));
         k.tambahDiBelakang(new Siswa("Rahma"));
         k.tampilkanSemua();
+
+        k.tambahDiDepan(new Siswa("Aisyah"));
+        System.out.println("=========================");
+        k.tampilkanSemua();
+
     }
 }

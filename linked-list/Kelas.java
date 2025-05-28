@@ -18,7 +18,8 @@ public class Kelas {
     }
 
     public void tambahDiDepan(Siswa s){
-        
+        s.berikutnya = pertama;
+        pertama = s;
     }
 
     public void tambahSetelah(String nama, Siswa s){
