@@ -31,7 +31,20 @@ public class Kelas {
     }
 
     public Integer jumlahSiswa(){
-        return null;
+        Integer jumlah = 0;
+        Siswa sekarang = pertama;
+
+        // supaya robust
+        if(sekarang == null){
+            return jumlah;
+        }
+
+        jumlah++;  //1
+        while(sekarang.berikutnya != null){
+            jumlah++;
+            sekarang = sekarang.berikutnya;
+        }
+        return jumlah;
     }
 
     public void tambahDiDepan(Siswa s){

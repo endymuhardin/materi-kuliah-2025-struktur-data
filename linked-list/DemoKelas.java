@@ -22,5 +22,12 @@ public class DemoKelas {
         } else {
             System.out.println("Siswa urutan "+urutan+" tidak ada");
         }
+
+
+        System.out.println("===================");
+        System.out.println("Jumlah siswa : "+k.jumlahSiswa());
+
+        Kelas k1 = new Kelas(null);
+        System.out.println("Jumlah siswa : "+k1.jumlahSiswa());
     }
 }
