@@ -36,5 +36,10 @@ public class DemoKelas {
         System.out.println("Cari nama Fikri di kelas berisi : " +k.urutan("Fikri"));
         System.out.println("Cari nama Aisyah di kelas berisi : " +k.urutan("Aisyah"));
         System.out.println("Cari nama Rahma di kelas berisi : " +k.urutan("Rahma"));
+
+        System.out.println("=========================");
+        k.tambahSetelah("Azmi", new Siswa("Mutiara"));
+        k.tampilkanSemua();
+        System.out.println("Jumlah siswa : "+k.jumlahSiswa());
     }
 }

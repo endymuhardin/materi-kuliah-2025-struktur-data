@@ -73,7 +73,23 @@ public class Kelas {
     }
 
     public void tambahSetelah(String nama, Siswa s){
+        // menggunakan method yang sudah ada, tapi sebetulnya lemot
+        // TODO: bahas di sesi tentang notasi O
+        Integer urutan = urutan(nama);
 
+        // robustness
+        // kalau tidak ketemu, throw exception element tidak ketemu
+        if(urutan == null) {
+            throw new IllegalArgumentException(nama + " tidak ada di dalam kelas ini");
+        }
+
+        // kondisi existing
+        Siswa x = ambilDi(urutan);
+        Siswa setelahX = x.berikutnya;
+
+        // selipkan s setelah x
+        x.berikutnya = s;
+        s.berikutnya = setelahX;
     }
 
     public void hapus(String nama){
