@@ -93,7 +93,45 @@ public class Kelas {
     }
 
     public void hapus(String nama){
+        Siswa sekarang = pertama;
 
+        // kelas kosong, tidak ada yang dihapus
+        if(sekarang == null){
+            return;
+        }
+
+        // kalau yang dihapus elemen pertama, 
+        // cukup pindahkan status pertama ke element berikutnya
+        // nanti test : 
+        // - hapus elemen pertama dari list berisi banyak
+        // - hapus elemen pertama dari list berisi satu
+        // - hapus elemen pertama dari list kosong
+        if(nama.equals(sekarang.nama)) {
+            if(sekarang.berikutnya != null) {
+                pertama = sekarang.berikutnya;
+            } else {
+                pertama = null;
+            }
+            return;
+        }
+
+        // nanti test :
+        // - hapus elemen tengah
+        // - hapus elemen terakhir
+        while(sekarang.berikutnya != null){
+            Siswa sebelumnya = sekarang;
+            sekarang = sekarang.berikutnya;
+
+            if(nama.equals(sekarang.nama)) {
+                if(sekarang.berikutnya != null) {
+                    sebelumnya.berikutnya = sekarang.berikutnya;
+                } else {
+                    sebelumnya.berikutnya = null;
+                }
+                return;
+            }
+        }
+        return;
     }
 
     public void tambahDiBelakang(Siswa s){
@@ -105,8 +143,12 @@ public class Kelas {
         Integer urutan = 0;
         System.out.println("Sekarang urutan ke : "+urutan);
 
-        Siswa sekarang = pertama; //endy
-        System.out.println("Siswa sekarang : "+sekarang.nama);
+        Siswa sekarang = pertama;
+        if(sekarang == null) {
+            System.out.println("Kelas kosong");
+            return;
+        }
+        System.out.println("Siswa sekarang : "+ sekarang.nama);
 
         while(sekarang.berikutnya != null) {
             urutan++;
