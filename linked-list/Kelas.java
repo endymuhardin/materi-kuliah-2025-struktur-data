@@ -5,8 +5,25 @@ public class Kelas {
         pertama = x;
     }
 
-    public Siswa ambilDi(Integer index){
-        return null;
+    public Siswa ambilDi(Integer index){ // 5
+        Integer urutan = 0;
+        Siswa sekarang = pertama; //aisyah
+
+        // urutan = 7, siswa = null
+        while(true) {
+            if(urutan == index) {
+                return sekarang;
+            }
+
+            // robustness : bisa menghandel inputan yang tidak benar
+            if(sekarang.berikutnya == null){
+                return null;
+            }
+
+            urutan++;
+            // pindah ke record berikutnya
+            sekarang = sekarang.berikutnya; 
+        }
     }
 
     public Integer urutan(String nama){
