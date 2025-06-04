@@ -2,6 +2,7 @@ public class Tumpukan {
 
     Barang palingAtas;
 
+    // bahasa inggrisnya push
     public void tumpuk(Barang b){
         b.dibawahnya = palingAtas;
         palingAtas = b;
@@ -22,15 +23,23 @@ public class Tumpukan {
         }
     }
 
+    // bahasa inggrisnya : pop
     public Barang ambil(){
-        return null;
+        Barang atas = palingAtas;
+        palingAtas = atas.dibawahnya;
+        return atas;
     }
 
+    // bahasa inggrisnya : peek
     public Barang lihatPalingAtas(){
-        return null;
+        return palingAtas;
     }
 
-    public Boolean kosongkah(){
-        return null;
+    public Boolean apakahKosong(){
+        return palingAtas == null;
+    }
+    
+    public Boolean adaIsinya(){
+        return !apakahKosong();
     }
 }
