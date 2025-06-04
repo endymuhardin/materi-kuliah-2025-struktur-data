@@ -1,6 +1,25 @@
 public class Tumpukan {
-    public void tumpuk(Barang b){
 
+    Barang palingAtas;
+
+    public void tumpuk(Barang b){
+        b.dibawahnya = palingAtas;
+        palingAtas = b;
+    }
+
+    public void lihatIsiTumpukan(){
+        if(palingAtas == null){
+            System.out.println("Tumpukan kosong");
+            return;
+        }
+
+        Barang sekarang = palingAtas;
+        System.out.println("Barang : "+sekarang.nama);
+
+        while(sekarang.dibawahnya != null) {
+            sekarang = sekarang.dibawahnya;
+            System.out.println("Barang : "+sekarang.nama);
+        }
     }
 
     public Barang ambil(){
@@ -12,6 +31,6 @@ public class Tumpukan {
     }
 
     public Boolean kosongkah(){
-        
+        return null;
     }
 }
